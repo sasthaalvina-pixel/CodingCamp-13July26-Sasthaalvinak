@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- ===== HEADER: THEME TOGGLE ===== -->
+  <header class="topbar">
+    <button id="themeToggle" class="btn-icon" title="Toggle Dark/Light Mode">🌙</button>
+  </header>
+
+  <!-- ===== PAGE TITLE ===== -->
+  <h1 class="page-title">Life Dashboard</h1>
+
+  <!-- ===== MAIN GRID ===== -->
+  <main class="grid">
+
+    <!-- WIDGET 1: GREETING -->
+    <section class="widget widget--greeting full-width" id="greetingWidget">
+      <div id="clock" class="clock">00:00:00</div>
+      <div id="dateDisplay" class="date"></div>
+      <div id="greetingText" class="greeting"></div>
+
+      <!-- Custom Name (Challenge) -->
+      <div class="name-row">
+        <span id="nameDisplay" class="user-name"></span>
+        <button id="editNameBtn" class="btn btn-edit">✏️ Edit Name</button>
+      </div>
+      <div id="nameForm" class="name-form hidden">
+        <input type="text" id="nameInput" class="input" placeholder="Enter your name..." maxlength="30" />
+        <button id="saveNameBtn" class="btn btn-primary">Save</button>
+      </div>
+    </section>
+
+    <!-- WIDGET 2: FOCUS TIMER -->
+    <section class="widget widget--timer" id="timerWidget">
+      <h2 class="widget-title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          style="vertical-align: text-bottom; margin-right: 4px;">
+          <line x1="10" y1="2" x2="14" y2="2"></line>
+          <line x1="12" y1="14" x2="15" y2="11"></line>
+          <circle cx="12" cy="14" r="8"></circle>
+        </svg>
+        Focus Timer
+      </h2>
+      <div id="timerDisplay" class="timer-display">25:00</div>
+      <div class="timer-controls">
+        <button id="startBtn" class="btn btn-primary">Start</button>
+        <button id="stopBtn" class="btn btn-stop">Stop</button>
+        <button id="resetBtn" class="btn btn-secondary">Reset</button>
+      </div>
+      <div class="timer-setting">
+        <label for="timerMinutes">⏱ Set minutes:</label>
+        <input type="number" id="timerMinutes" class="input input-sm" value="25" min="1" max="99" />
+        <button id="applyTimerBtn" class="btn btn-secondary">Apply</button>
+      </div>
+    </section>
+
+    <!-- WIDGET 3: TO-DO LIST -->
+    <section class="widget widget--todo" id="todoWidget">
+      <h2 class="widget-title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          style="vertical-align: text-bottom; margin-right: 4px;">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        Tasks
+      </h2>
+
+      <div class="todo-input-row">
+        <input type="text" id="taskInput" class="input" placeholder="Add a new task..." />
+        <button id="addTaskBtn" class="btn btn-primary">Add</button>
+      </div>
+
+      <p id="duplicateMsg" class="error-msg hidden">⚠️ Task already exists!</p>
+
+      <div class="task-filters">
+        <button id="filterAll" class="btn-filter active">All</button>
+        <button id="filterActive" class="btn-filter">Active</button>
+        <button id="filterDone" class="btn-filter">Done</button>
+      </div>
+
+      <ul id="taskList" class="task-list"></ul>
+
+      <p id="emptyMsg" class="empty-msg">No tasks yet. Add one above!</p>
+    </section>
+
+    <!-- WIDGET 4: QUICK LINKS -->
+    <section class="widget widget--links full-width" id="linksWidget">
+      <h2 class="widget-title">🔗 Quick Links</h2>
+
+      <div class="link-input-row">
+        <input type="text" id="linkName" class="input" placeholder="Link name" />
+        <input type="url" id="linkUrl" class="input" placeholder="URL (https://...)" />
+        <button id="addLinkBtn" class="btn btn-add-link">Add Link</button>
+      </div>
+
+      <div id="linksList" class="links-list"></div>
+
+      <p id="emptyLinksMsg" class="empty-msg">No quick links yet.</p>
+    </section>
+
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+
+</html>
